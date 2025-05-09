@@ -1,0 +1,478 @@
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #f9f4e8;
+  color: #5a3d2b;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #f6f1e7;
+}
+
+.book-cover {
+  position: relative;
+  width: 400px;
+  height: 600px;
+  border-radius: 10px 20px 20px 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.5s ease;
+  padding: 40px 20px;
+  border: 8px solid rgba(135, 175, 245, 0.8);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.book-cover:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./images/charlie2.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.4;
+  z-index: 0;
+  border-radius: 5px;
+}
+
+.book-cover:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.book-cover-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.book-title {
+  font-size: 4rem;
+  color: #ffffff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 
+               -1px -1px 0 #ff6b9d,
+               1px -1px 0 #ff6b9d,
+               -1px 1px 0 #ff6b9d,
+               1px 1px 0 #ff6b9d;
+  margin: 0;
+  padding: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.book-author {
+  font-size: 1.5rem;
+  color: #f0e9e9;
+  text-shadow: 1px 1px 3px rgba(255, 105, 180, 0.9);
+
+  margin-top: auto;
+  align-self: flex-end;
+  padding: 10px 0;
+}
+
+.book-content {
+  width: 90%;
+  max-width: 1000px;
+  background: #fff9e6;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  position: relative;
+}
+
+.close-book {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #ff9a9a;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: white;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.close-book:hover {
+  background: #ff7b7b;
+}
+
+.book-pages {
+  display: flex;
+  position: relative;
+  min-height: 500px;
+  margin-top: 30px;
+}
+
+.page-container {
+  display: flex;
+  flex: 1;
+  position: relative;
+  perspective: 2000px;
+}
+
+.page-nav {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #d4a76a;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.page-nav:hover {
+  color: #e6a8a8;
+}
+
+.left-nav {
+  padding-right: 20px;
+}
+
+.right-nav {
+  padding-left: 20px;
+}
+
+.page {
+  flex: 1;
+  padding: 30px;
+  background: #fffdf5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.left-page {
+  border-radius: 10px 0 0 10px;
+  border-right: 1px solid #f0e6d2;
+  transform-origin: right center;
+}
+
+.right-page {
+  border-radius: 0 10px 10px 0;
+  transform-origin: left center;
+  display: flex;
+  flex-direction: column;
+}
+
+.first-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding-top: 40px;
+}
+
+.charlie-portrait {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 30px 0;
+}
+
+.charlie-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #f0e6d2;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.portrait-frame {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px dashed #d4a76a;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page-content {
+  flex: 1;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  padding: 10px;
+  border: 1px dashed #f0e6d2;
+  border-radius: 5px;
+  background: white;
+}
+
+.page-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.save-button {
+  background: #a8c4e6;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+}
+
+.save-button:hover {
+  background: #8fb0d8;
+}
+
+.delete-button {
+  background: #ffcccc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1rem;
+  color: #5a3d2b;
+  font-weight: bold;
+}
+
+.delete-button:hover {
+  background: #ffaaaa;
+}
+
+.page-number {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 0.8rem;
+  color: #aaaaaa;
+}
+
+.turning .left-page {
+  animation: turnLeft 0.3s forwards;
+}
+
+.turning .right-page {
+  animation: turnRight 0.3s forwards;
+}
+
+@keyframes turnLeft {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-180deg); }
+}
+
+@keyframes turnRight {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(180deg); }
+}
+
+.entry-title {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  border: none;
+  border-bottom: 2px solid #d4a76a;
+  margin-bottom: 10px;
+  background: transparent;
+  color: #5a3d2b;
+}
+
+.entry-title:focus {
+  outline: none;
+  border-bottom-color: #a8c4e6;
+}
+
+.page-header {
+  margin-bottom: 20px;
+}
+
+.page-date {
+  color: #aaaaaa;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.left-page h2 {
+  color: #a8c4e6;
+  margin-top: 0;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #f0e6d2;
+  padding-bottom: 10px;
+}
+
+.right-page textarea {
+  flex: 1;
+  margin: 0 0 20px 0;
+  padding: 15px;
+  border: 2px solid #d4a76a;
+  border-radius: 10px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 1rem;
+  resize: none;
+  background: #fffdf5;
+  min-height: 200px;
+  max-height: 300px;
+}
+
+.character-counter {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #aaaaaa;
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+
+.character-counter.warning {
+  color: #e6a8a8;
+}
+
+.character-counter.error {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+.delete-confirm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.delete-confirm-content {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+}
+
+.delete-confirm-content h3 {
+  color: #e6a8a8;
+  margin-top: 0;
+}
+
+.confirm-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.confirm-delete {
+  background: #ff6b6b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-weight: bold;
+}
+
+.cancel-delete {
+  background: #a8c4e6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+@keyframes openBook {
+  0% {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+
+.book-cover {
+  position: relative;
+}
+
+.book-content {
+  display: none;
+  animation: openBook 1s forwards;
+}
+
+.book-open .book-content {
+  display: block;
+}
+
+.book-open .book-cover {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
+
+  .left-page {
+    border-right: none;
+    border-bottom: 1px dashed #d4a76a;
+  }
+
+  .book-cover {
+    width: 300px;
+    height: 450px;
+  }
+
+  .book-title {
+    font-size: 2.5rem;
+  }
+  
+  .entry-title {
+    font-size: 1.3rem;
+  }
+  
+  .page-date {
+    font-size: 0.8rem;
+  }
+}
