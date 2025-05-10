@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import charlieImg from './images/charlie.jpg';
-import charlie3Img from './images/charlie3.jpeg';
+import charlie3Img from './images/charlie3.png';
 
 function App() {
   const [isBookOpen, setIsBookOpen] = useState(false);
@@ -216,9 +216,9 @@ function App() {
       {!isBookOpen ? (
         <div className="book-cover" onClick={handleOpenBook}>
           <div className="book-cover-content">
-            <h1 className="book-title">Pawprints</h1>
+            <h1 className="book-title">Charlie</h1>
             <div className="book-author">
-              Charlie - 4 May 2025🐾💘🌈
+              22-02-2017 - 04-05-2025🐾💘🌈
             </div>
           </div>
         </div>
