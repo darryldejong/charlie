@@ -17,7 +17,7 @@ function App() {
   const [isTurningPage, setIsTurningPage] = useState(false);
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
 
-  const MAX_CHARACTERS = 200;
+  const MAX_CHARACTERS = 300;
   const MAX_TITLE_LENGTH = 20;
 
   useEffect(() => {
